@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour
 {
+    // Mulitpliers for the ship's movement
     [SerializeField] private float speedMultiplier = 1f;
     [SerializeField] private float speedMultiplierAngle = 0.5f;
     [SerializeField] private float speedRollMultiplierAngle = 0.05f;
@@ -18,72 +19,51 @@ public class ShipController : MonoBehaviour
     float timer = 1f;
     [SerializeField] private Transform customCursorVisual; // Custom Cursor
 
-    //Quaternion originalRotation;
-
-    private void Awake()
-    {
-        //originalRotation.x = transform.rotation.x;
-        //originalRotation.z = transform.rotation.z;
-    }
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>(); // Get rigidbody
 
+        // Make the cursor invisible and confine it to the game window
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
     }
 
     private void Update()
     {
+        // Set the custom cursor to the position of the mouse position
         customCursorVisual.position = Input.mousePosition;
 
+        // Timer goes down
         timer -= Time.deltaTime;
 
-        verticalMove = Input.GetAxis("Vertical");
-        horizontalMove = Input.GetAxis("Horizontal");
-        rollInput = Input.GetAxis("Roll");
+        verticalMove = Input.GetAxis("Vertical"); // A & D
+        horizontalMove = Input.GetAxis("Horizontal"); // W & S
+        rollInput = Input.GetAxis("Roll"); // E & Q
 
-        if (timer <= 0f)
+        if (timer <= 0f) // To prevent the space ship from spinning in the beginning, wait a moment until 
         {
-            mouseInputX = Input.GetAxis("Mouse X");
-            mouseInputY = Input.GetAxis("Mouse Y");
+            mouseInputX = Input.GetAxis("Mouse X"); // Mouse X position
+            mouseInputY = Input.GetAxis("Mouse Y"); // Mouse Y position
         }
     }
 
     private void FixedUpdate()
     {
+        // Add force to the ship, so it can move
         AddForceToShip();
-
-        //if(Input.GetKey(KeyCode.X)) 
-        //{
-        //    gameObject.transform.rotation = originalRotation;
-        //}
     }
 
     private void AddForceToShip()
     {
+        // Forwards/Backwards & Left/Right
         rb.AddForce(rb.transform.TransformDirection(Vector3.forward) * verticalMove * speedMultiplier, ForceMode.VelocityChange);
         rb.AddForce(rb.transform.TransformDirection(Vector3.right) * horizontalMove * speedMultiplier, ForceMode.VelocityChange);
 
+        // Mouse Position
         rb.AddTorque(rb.transform.right * speedMultiplierAngle * mouseInputY * -1, ForceMode.VelocityChange);
         rb.AddTorque(rb.transform.up * speedMultiplierAngle * mouseInputX, ForceMode.VelocityChange);
 
+        // Rolling
         rb.AddTorque(rb.transform.forward * speedRollMultiplierAngle * rollInput, ForceMode.VelocityChange);
     }
 }
-
-/*
-W = forward
-S = backward
-A = leftward
-D = rightward
-
-Spacebar = thrust up
-C = thrust down
-
-Q = roll left(anti-clockwise)
-E = roll right(clockwise)
-
-Cursor = always rotate towards
- */
