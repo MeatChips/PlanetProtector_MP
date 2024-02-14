@@ -15,6 +15,8 @@ public class ShipController : MonoBehaviour
     private float mouseInputY;
     private float rollInput;
 
+    private bool takeMouseInput;
+
     Rigidbody rb;
     float timer = 1f;
     [SerializeField] private Transform customCursorVisual; // Custom Cursor
@@ -26,6 +28,8 @@ public class ShipController : MonoBehaviour
         // Make the cursor invisible and confine it to the game window
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
+
+        takeMouseInput = true;
     }
 
     private void Update()
@@ -40,10 +44,15 @@ public class ShipController : MonoBehaviour
         horizontalMove = Input.GetAxis("Horizontal"); // W & S
         rollInput = Input.GetAxis("Roll"); // E & Q
 
-        if (timer <= 0f) // To prevent the space ship from spinning in the beginning, wait a moment until 
+        if (takeMouseInput && timer <= 0f) // Check if the ship can use mouse input & To prevent the space ship from spinning in the beginning, wait a moment until    
         {
             mouseInputX = Input.GetAxis("Mouse X"); // Mouse X position
             mouseInputY = Input.GetAxis("Mouse Y"); // Mouse Y position
+        }
+        
+        if (Input.GetKeyDown(KeyCode.X)) // Can it use mouse input or not
+        {
+            takeMouseInput = !takeMouseInput;
         }
     }
 
@@ -67,3 +76,11 @@ public class ShipController : MonoBehaviour
         rb.AddTorque(rb.transform.forward * speedRollMultiplierAngle * rollInput, ForceMode.VelocityChange);
     }
 }
+
+/*
+THINGS TO ADD NEXT TIME:
+
+- Cursor confined in a smaller space 
+- Rotate towards cursor until it is at the position
+
+*/
