@@ -24,12 +24,6 @@ public class CannonSystem : MonoBehaviour
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        // Press left mouse button to fire
-        //if (Input.GetKeyDown(KeyCode.Mouse0))
-        //{
-        //    LaunchProjectile();
-        //}
-
         if (readyToShoot && shooting && !isOverheated)
         {
             LaunchProjectile();

@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 932792745}
   - component: {fileID: 932792748}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
