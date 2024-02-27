@@ -12,8 +12,16 @@ public class CannonSystem : MonoBehaviour
     [SerializeField] private Rigidbody rb; // Get the rigidbody instead of the entire gameobject, so you wont have to reference to the rigidbody inside the script.
     [SerializeField] private float launchForce = 5000f; // The force the projectile gets shot with
 
+    [SerializeField] private int maxHeat = 100;
+    [SerializeField] private int currentHeat;
+    [SerializeField] private OverheatBar overheatBar;
+    [SerializeField] private float rateOfCooldown = 0.5f;
+    private float nextCooldown = 0f;
+
     void Start()
     {
+        currentHeat = maxHeat;
+        overheatBar.SetMaxNumber(maxHeat);
         readyToShoot = true;
         isOverheated = false;
     }
@@ -27,6 +35,24 @@ public class CannonSystem : MonoBehaviour
         if (readyToShoot && shooting && !isOverheated)
         {
             LaunchProjectile();
+            Heating(2);
+        }
+
+        if (Time.time > nextCooldown && isOverheated)
+        {
+            nextCooldown = Time.time + rateOfCooldown;
+            Cooling(6);
+        }
+
+        if (Time.time > nextCooldown && !shooting)
+        {
+            nextCooldown = Time.time + rateOfCooldown;
+            Cooling(6);
+        }
+        
+        if(currentHeat >= 100)
+        {
+
         }
     }
 
@@ -48,6 +74,26 @@ public class CannonSystem : MonoBehaviour
     private void ResetLaunch()
     {
         readyToShoot = true;
+    }
+
+    private void Heating(int heat)
+    {
+        currentHeat -= heat;
+        overheatBar.SetNumber(currentHeat);
+
+        if (currentHeat <= 0)
+            isOverheated = true;
+    }
+
+    private void Cooling(int cool)
+    {
+        currentHeat += cool;
+        overheatBar.SetNumber(currentHeat);
+
+        if (currentHeat >= 40)
+        {
+            isOverheated = false;
+        }
     }
 }
 
