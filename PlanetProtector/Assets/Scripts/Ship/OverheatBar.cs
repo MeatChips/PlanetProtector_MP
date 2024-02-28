@@ -5,7 +5,17 @@ using UnityEngine.UI;
 
 public class OverheatBar : MonoBehaviour
 {
-    public Slider slider;
+    [SerializeField] private Slider slider;
+    [SerializeField] private Image fillImage;
+    [SerializeField] private Color minColor;
+    [SerializeField] private Color maxColor;
+
+    void Start()
+    {
+        slider.onValueChanged.AddListener(ChangeFillColor);
+        // Set initial color
+        ChangeFillColor(slider.value); // Set first color
+    }
 
     public void SetNumber(int number)
     {
@@ -17,4 +27,10 @@ public class OverheatBar : MonoBehaviour
         slider.maxValue = number;
         slider.value = number;
     }
+
+    void ChangeFillColor(float value)
+    {
+        fillImage.color = Color.Lerp(minColor, maxColor, slider.normalizedValue);
+    }
+
 }

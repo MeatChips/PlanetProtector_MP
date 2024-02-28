@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class CannonSystem : MonoBehaviour
 {
-    public bool allowButtonHold, shooting, readyToShoot, isOverheated;
-
-    [SerializeField] private float timeBetweenShooting = 0.1f;
-
-    [SerializeField] private Transform[] firePoints; // The points were they projectiles get fired from
     [SerializeField] private Rigidbody rb; // Get the rigidbody instead of the entire gameobject, so you wont have to reference to the rigidbody inside the script.
     [SerializeField] private float launchForce = 5000f; // The force the projectile gets shot with
+    [SerializeField] private Transform[] firePoints; // The points were they projectiles get fired from
 
-    [SerializeField] private int maxHeat = 100;
+    private int maxHeat = 100;
     [SerializeField] private int currentHeat;
     [SerializeField] private OverheatBar overheatBar;
-    [SerializeField] private float rateOfCooldown = 0.5f;
+    private float rateOfCooldown = 0.5f;
     private float nextCooldown = 0f;
+
+    private float timeBetweenShooting = 0.2f;
+
+    public bool allowButtonHold;
+    private bool shooting, readyToShoot, isOverheated;
 
     void Start()
     {

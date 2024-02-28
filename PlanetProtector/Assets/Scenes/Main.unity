@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.5413372, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1992,7 +1992,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2019,7 +2019,7 @@ MonoBehaviour:
   m_Direction: 2
   m_MinValue: 0
   m_MaxValue: 100
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2037,6 +2037,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1531287863}
+  fillImage: {fileID: 419787610}
+  minColor: {r: 1, g: 0.101960786, b: 0, a: 1}
+  maxColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &1595716294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,19 +3043,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0c2cdfac3540c43a01712a2c3d23ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowButtonHold: 1
-  shooting: 0
-  readyToShoot: 0
-  isOverheated: 0
-  timeBetweenShooting: 0.1
   firePoints:
   - {fileID: 898349630}
   - {fileID: 1078623158}
   rb: {fileID: 3371152222774747738, guid: 56f0ece329577894290060e47350c0cf, type: 3}
   launchForce: 5000
-  maxHeat: 100
   currentHeat: 0
   overheatBar: {fileID: 1531287864}
+  allowButtonHold: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
