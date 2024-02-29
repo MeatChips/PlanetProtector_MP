@@ -53,7 +53,7 @@ public class CannonSystem : MonoBehaviour
         
         if(currentHeat >= 100)
         {
-
+            currentHeat = 100;
         }
     }
 
@@ -97,10 +97,3 @@ public class CannonSystem : MonoBehaviour
         }
     }
 }
-
-/*
-THINGS TO ADD NEXT TIME:
-
-- Cannon Overheating
-
-*/
