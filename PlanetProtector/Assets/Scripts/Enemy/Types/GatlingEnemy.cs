@@ -49,6 +49,7 @@ public class GatlingEnemy : MonoBehaviour
         {
             canMove = false;
             detectedTarget = true;
+            if(detectedTarget) readyToShoot = true;
         }
     }
 
@@ -66,7 +67,6 @@ public class GatlingEnemy : MonoBehaviour
     private void RotateGunsTowardTarget()
     {
         cannonRotationPoint.LookAt(target);
-        readyToShoot = true;
     }
 
     
