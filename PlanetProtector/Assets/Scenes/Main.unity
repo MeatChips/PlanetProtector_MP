@@ -3116,6 +3116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GatlingEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2427196285509147041, guid: c3303f8b735e8d94a9f76b3c5fc75772,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3738606751736429279, guid: c3303f8b735e8d94a9f76b3c5fc75772,
         type: 3}
       propertyPath: target
@@ -3138,6 +3143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LaserEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633509865608285140, guid: dbec25bb985f8c944becc9132d17c3b6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8384167691840979284, guid: dbec25bb985f8c944becc9132d17c3b6,
         type: 3}
@@ -3256,6 +3266,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KamikazeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880606771228075512, guid: 0e92da1d96fd5c04180a5e8ceab01fd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057239069659199649, guid: 0e92da1d96fd5c04180a5e8ceab01fd8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
