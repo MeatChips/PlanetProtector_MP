@@ -2840,50 +2840,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2140548834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2082129054
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2082129056}
-  - component: {fileID: 2082129055}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2082129055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082129054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94fadfae39331de498e6c81d04040304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2082129056
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082129054}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 171.57877, y: 97.774445, z: -585.06006}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2102610767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,7 +3171,7 @@ PrefabInstance:
     - target: {fileID: 4637712938312272775, guid: 0e92da1d96fd5c04180a5e8ceab01fd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.13
+      value: 12.7
       objectReference: {fileID: 0}
     - target: {fileID: 4637712938312272775, guid: 0e92da1d96fd5c04180a5e8ceab01fd8,
         type: 3}
@@ -3290,7 +3246,6 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 2038525723}
   - {fileID: 2102610770}
-  - {fileID: 2082129056}
   - {fileID: 447459009}
   - {fileID: 1143187027}
   - {fileID: 1048857569}

@@ -10,15 +10,15 @@ public class EnemySpawner : MonoBehaviour
 
     private bool isSpawning;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        isSpawning = true;
-    }
-
     // Update is called once per frame
     void Update()
     {
+        // Check if the GameManager says that the game is started, then start spawning.
+        if (GameManager.Instance.GameStarted)
+        {
+            isSpawning = true;
+        }
+
         // if isSpawning is true, it allowed to start spawning
         if (isSpawning)
         {
