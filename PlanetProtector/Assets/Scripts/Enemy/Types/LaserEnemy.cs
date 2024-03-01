@@ -78,7 +78,7 @@ public class LaserEnemy : MonoBehaviour
         laserLine.SetPosition(0, laserOrigin.position);
         if(Physics.Raycast(rayOrigin, direction, out hit))
         {
-            Debug.Log("HIT");
+            //Debug.Log("HIT");
             laserLine.SetPosition(1, hit.point);
             laserTime -= Time.deltaTime;
         }

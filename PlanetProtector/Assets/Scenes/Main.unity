@@ -1173,7 +1173,11 @@ MonoBehaviour:
   - {fileID: 2427196285509147041, guid: c3303f8b735e8d94a9f76b3c5fc75772, type: 3}
   - {fileID: 5880606771228075512, guid: 0e92da1d96fd5c04180a5e8ceab01fd8, type: 3}
   - {fileID: 5633509865608285140, guid: dbec25bb985f8c944becc9132d17c3b6, type: 3}
-  rateToSpawn: 0.5
+  minRateToSpawn: 2
+  maxRateToSpawn: 6
+  isSpawning: 0
+  newEnemy: 0
+  SpawnedEnemies: []
 --- !u!1 &940845961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,7 +1277,7 @@ Transform:
   m_GameObject: {fileID: 940845961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -605.5}
+  m_LocalPosition: {x: 0, y: 0, z: -300}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3075,7 +3079,7 @@ PrefabInstance:
     - target: {fileID: 2427196285509147041, guid: c3303f8b735e8d94a9f76b3c5fc75772,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3738606751736429279, guid: c3303f8b735e8d94a9f76b3c5fc75772,
         type: 3}
@@ -3103,7 +3107,7 @@ PrefabInstance:
     - target: {fileID: 5633509865608285140, guid: dbec25bb985f8c944becc9132d17c3b6,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8384167691840979284, guid: dbec25bb985f8c944becc9132d17c3b6,
         type: 3}
@@ -3226,7 +3230,7 @@ PrefabInstance:
     - target: {fileID: 5880606771228075512, guid: 0e92da1d96fd5c04180a5e8ceab01fd8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8057239069659199649, guid: 0e92da1d96fd5c04180a5e8ceab01fd8,
         type: 3}
