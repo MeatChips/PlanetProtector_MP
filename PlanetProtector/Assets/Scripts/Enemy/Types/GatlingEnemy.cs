@@ -20,6 +20,7 @@ public class GatlingEnemy : MonoBehaviour
     [SerializeField] private float timeBetweenShooting = 5f;
 
     private float health = 14f;
+    private int killReward = 6;
 
     private bool canMove, readyToShoot, detectedTarget;
 
@@ -106,6 +107,7 @@ public class GatlingEnemy : MonoBehaviour
         health -= 1f;
         if (health <= 0)
         {
+            GameManager.Instance.playerScore += killReward;
             Destroy(this.gameObject);
         }
     }

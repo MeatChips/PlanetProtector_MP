@@ -20,6 +20,7 @@ public class LaserEnemy : MonoBehaviour
     [SerializeField] private float timeBetweenShooting = 30f;
 
     private float health = 30f;
+    private int killReward = 14;
 
     private bool canMove, readyToShoot, detectedTarget;
 
@@ -145,6 +146,7 @@ public class LaserEnemy : MonoBehaviour
         health -= 1f;
         if (health <= 0)
         {
+            GameManager.Instance.playerScore += killReward;
             Destroy(this.gameObject);
         }
     }

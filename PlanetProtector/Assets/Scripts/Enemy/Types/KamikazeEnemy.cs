@@ -14,6 +14,7 @@ public class KamikazeEnemy : MonoBehaviour
     private PlanetHealthManager planetHealthManager;
 
     private float health = 4f;
+    private int killReward = 8;
 
     private bool canMove, detectedTarget;
 
@@ -88,6 +89,7 @@ public class KamikazeEnemy : MonoBehaviour
         health -= 1f;
         if(health <= 0)
         {
+            GameManager.Instance.playerScore += killReward;
             Destroy(this.gameObject);
         }
     }

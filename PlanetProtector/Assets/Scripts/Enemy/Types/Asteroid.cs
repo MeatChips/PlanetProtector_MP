@@ -16,7 +16,8 @@ public class Asteroid : MonoBehaviour
     private Transform asteroidVisual;
     private float rotationAsteroidSpeed = 10f;
 
-    private float health = 8f;
+    private float health = 6f;
+    private int killReward = 1;
 
     private bool canMove, detectedTarget;
 
@@ -95,6 +96,7 @@ public class Asteroid : MonoBehaviour
         health -= 1f;
         if (health <= 0)
         {
+            GameManager.Instance.playerScore += killReward;
             Destroy(this.gameObject);
         }
     }
