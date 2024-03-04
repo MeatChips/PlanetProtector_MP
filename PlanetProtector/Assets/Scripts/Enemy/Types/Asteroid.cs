@@ -12,6 +12,9 @@ public class Asteroid : MonoBehaviour
     private Rigidbody rb;
     private SphereCollider sphereCol;
 
+    private Transform asteroidVisual;
+    private float rotationAsteroidSpeed = 10f;
+
     private bool canMove, detectedTarget;
 
     // Start is called before the first frame update
@@ -19,6 +22,7 @@ public class Asteroid : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         sphereCol = GetComponent<SphereCollider>();
+        asteroidVisual = gameObject.transform.GetChild(0);
 
         target = GameObject.FindGameObjectWithTag("Target").transform;
 
@@ -34,7 +38,8 @@ public class Asteroid : MonoBehaviour
         if (canMove) MoveTowardsTarget();
         if (detectedTarget) ChargeTowardsPlanet();
 
-        transform.Rotate(Vector3.up * Time.deltaTime);
+        asteroidVisual.Rotate(Vector3.up * rotationAsteroidSpeed * Time.deltaTime);
+        asteroidVisual.Rotate(Vector3.right * rotationAsteroidSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
