@@ -11,6 +11,7 @@ public class GatlingEnemy : MonoBehaviour
     [SerializeField] private float sphereColRadius = 100f;
     private Rigidbody rb;
     private SphereCollider sphereCol;
+    private PlanetHealthManager planetHealthManager;
 
     [SerializeField] private Rigidbody rbProjectile; // Get the rigidbody instead of the entire gameobject, so you wont have to reference to the rigidbody inside the script.
     [SerializeField] private float launchForce = 5000f; // The force the projectile gets shot with
@@ -27,6 +28,7 @@ public class GatlingEnemy : MonoBehaviour
         sphereCol = GetComponent<SphereCollider>();
 
         target = GameObject.FindGameObjectWithTag("Target").transform;
+        planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
 
         sphereCol.radius = sphereColRadius;
 
@@ -77,6 +79,7 @@ public class GatlingEnemy : MonoBehaviour
         {
             var projectileInstance = Instantiate(rbProjectile, firePoint.position, firePoint.rotation); // Spawn the projectile at the firepoints
             projectileInstance.AddForce(firePoint.forward * launchForce); // Add the launchforce so it goes forward
+            planetHealthManager.TakeDamage(7);
         }
 
         readyToShoot = false;

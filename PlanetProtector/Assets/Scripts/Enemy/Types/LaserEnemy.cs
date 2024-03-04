@@ -11,6 +11,9 @@ public class LaserEnemy : MonoBehaviour
     private Rigidbody rb;
     private SphereCollider sphereCol;
 
+    private PlanetHealthManager planetHealthManager;
+    public List<int> laserTickTimers = new List<int>();
+
     [SerializeField] private Transform laserOrigin; // Origin from where to laser is getting shot
     [SerializeField] private LineRenderer laserLine; // The laser
     [SerializeField] private float laserTime = 10f; // Time the laser is on
@@ -25,6 +28,7 @@ public class LaserEnemy : MonoBehaviour
         sphereCol = GetComponent<SphereCollider>();
 
         target = GameObject.FindGameObjectWithTag("Target").transform;
+        planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
 
         sphereCol.radius = sphereColRadius;
 
@@ -81,6 +85,7 @@ public class LaserEnemy : MonoBehaviour
             //Debug.Log("HIT");
             laserLine.SetPosition(1, hit.point);
             laserTime -= Time.deltaTime;
+            StartLaserDamage(4);
         }
 
         if(laserTime <= 0)
@@ -93,8 +98,35 @@ public class LaserEnemy : MonoBehaviour
 
     private void ResetLaunch()
     {
-        laserTime = 5f;
+        laserTime = 10f;
         laserLine.enabled = true;
         readyToShoot = true;
+    }
+
+    public void StartLaserDamage(int ticks)
+    {
+        if(laserTickTimers.Count <= 0)
+        {
+            laserTickTimers.Add(ticks);
+            StartCoroutine(DamageOverTime());
+        }
+        else
+        {
+            laserTickTimers.Add(ticks);
+        }
+    }
+
+    public IEnumerator DamageOverTime()
+    {
+        while(laserTickTimers.Count > 0)
+        {
+            for (int i = 0; i < laserTickTimers.Count; i++)
+            {
+                laserTickTimers[i]--;
+            }
+            planetHealthManager.TakeDamage(2);
+            laserTickTimers.RemoveAll(i => i == 0);
+            yield return new WaitForSeconds(1f);
+        }
     }
 }

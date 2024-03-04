@@ -11,6 +11,7 @@ public class KamikazeEnemy : MonoBehaviour
     [SerializeField] private float sphereColRadius = 100f; // Radius of detection sphere
     private Rigidbody rb;
     private SphereCollider sphereCol;
+    private PlanetHealthManager planetHealthManager;
 
     private bool canMove, detectedTarget;
 
@@ -21,6 +22,7 @@ public class KamikazeEnemy : MonoBehaviour
         sphereCol = GetComponent<SphereCollider>();
 
         target = GameObject.FindGameObjectWithTag("Target").transform;
+        planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
 
         sphereCol.radius = sphereColRadius;
 
@@ -70,6 +72,7 @@ public class KamikazeEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Target"))
         {
             Destroy(this.gameObject);
+            planetHealthManager.TakeDamage(25);
         }
     }
 }

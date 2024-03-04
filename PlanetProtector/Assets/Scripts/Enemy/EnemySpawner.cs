@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     private float nextSpawn = 0f;
 
     public bool isSpawning, newEnemy;
+    public int maxEnemies;
 
     [SerializeField] private List<GameObject> SpawnedEnemies = new List<GameObject>();
 
@@ -30,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
             if (newEnemy)
                 StartSpawning();
 
-        if (SpawnedEnemies.Count >= 20) newEnemy = false;
+        if (SpawnedEnemies.Count >= maxEnemies) newEnemy = false;
         else newEnemy = true;
     }
 

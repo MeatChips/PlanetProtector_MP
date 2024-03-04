@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OverheatBar : MonoBehaviour
+public class PlanetHealthBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private Image fillImage;
@@ -30,5 +30,4 @@ public class OverheatBar : MonoBehaviour
     {
         fillImage.color = Color.Lerp(minColor, maxColor, slider.normalizedValue);
     }
-
 }

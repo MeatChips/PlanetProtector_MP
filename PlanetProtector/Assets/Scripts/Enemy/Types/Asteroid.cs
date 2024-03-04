@@ -11,6 +11,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float sphereColRadius = 100f; // Radius of detection sphere
     private Rigidbody rb;
     private SphereCollider sphereCol;
+    private PlanetHealthManager planetHealthManager;
 
     private Transform asteroidVisual;
     private float rotationAsteroidSpeed = 10f;
@@ -25,6 +26,7 @@ public class Asteroid : MonoBehaviour
         asteroidVisual = gameObject.transform.GetChild(0);
 
         target = GameObject.FindGameObjectWithTag("Target").transform;
+        planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
 
         sphereCol.radius = sphereColRadius;
 
@@ -77,6 +79,7 @@ public class Asteroid : MonoBehaviour
         if (collision.gameObject.CompareTag("Target"))
         {
             Destroy(this.gameObject);
+            planetHealthManager.TakeDamage(5);
         }
     }
 }
