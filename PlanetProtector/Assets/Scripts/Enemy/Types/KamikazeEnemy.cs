@@ -13,6 +13,8 @@ public class KamikazeEnemy : MonoBehaviour
     private SphereCollider sphereCol;
     private PlanetHealthManager planetHealthManager;
 
+    private float health = 4f;
+
     private bool canMove, detectedTarget;
 
     // Start is called before the first frame update
@@ -73,6 +75,20 @@ public class KamikazeEnemy : MonoBehaviour
         {
             Destroy(this.gameObject);
             planetHealthManager.TakeDamage(25);
+        }
+
+        if (collision.gameObject.CompareTag("ShipProjectile"))
+        {
+            TakeDamage();
+        }
+    }
+
+    public void TakeDamage()
+    {
+        health -= 1f;
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }

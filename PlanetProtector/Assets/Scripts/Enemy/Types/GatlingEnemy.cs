@@ -19,6 +19,8 @@ public class GatlingEnemy : MonoBehaviour
 
     [SerializeField] private float timeBetweenShooting = 5f;
 
+    private float health = 14f;
+
     private bool canMove, readyToShoot, detectedTarget;
 
     // Start is called before the first frame update
@@ -89,5 +91,22 @@ public class GatlingEnemy : MonoBehaviour
     private void ResetLaunch()
     {
         readyToShoot = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ShipProjectile"))
+        {
+            TakeDamage();
+        }
+    }
+
+    public void TakeDamage()
+    {
+        health -= 1f;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

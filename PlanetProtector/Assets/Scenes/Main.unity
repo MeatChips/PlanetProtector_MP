@@ -1282,12 +1282,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
+  - {fileID: 5880606771228075512, guid: 0e92da1d96fd5c04180a5e8ceab01fd8, type: 3}
+  - {fileID: 2427196285509147041, guid: c3303f8b735e8d94a9f76b3c5fc75772, type: 3}
   - {fileID: 5633509865608285140, guid: dbec25bb985f8c944becc9132d17c3b6, type: 3}
+  - {fileID: 8406133044723564377, guid: 1f3c275fbd4e9474dab9cf7bd4e084e2, type: 3}
   minRateToSpawn: 2
   maxRateToSpawn: 6
   isSpawning: 0
   newEnemy: 0
-  maxEnemies: 1
+  maxEnemies: 20
   SpawnedEnemies: []
 --- !u!1 &940845961
 GameObject:
@@ -1350,7 +1353,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 2f41f5eb48681e542b4da7b5d6af6f7d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2787,7 +2790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0c2cdfac3540c43a01712a2c3d23ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3371152222774747738, guid: 56f0ece329577894290060e47350c0cf, type: 3}
+  rb: {fileID: 3371152222774747738, guid: cbf8ca7c3ba475247b97d87cef4b0dab, type: 3}
   launchForce: 5000
   firePoints:
   - {fileID: 898349630}

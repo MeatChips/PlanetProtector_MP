@@ -16,6 +16,8 @@ public class Asteroid : MonoBehaviour
     private Transform asteroidVisual;
     private float rotationAsteroidSpeed = 10f;
 
+    private float health = 8f;
+
     private bool canMove, detectedTarget;
 
     // Start is called before the first frame update
@@ -80,6 +82,20 @@ public class Asteroid : MonoBehaviour
         {
             Destroy(this.gameObject);
             planetHealthManager.TakeDamage(5);
+        }
+
+        if (collision.gameObject.CompareTag("ShipProjectile"))
+        {
+            TakeDamage();
+        }
+    }
+
+    public void TakeDamage()
+    {
+        health -= 1f;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }

@@ -19,6 +19,8 @@ public class LaserEnemy : MonoBehaviour
     [SerializeField] private float laserTime = 10f; // Time the laser is on
     [SerializeField] private float timeBetweenShooting = 30f;
 
+    private float health = 30f;
+
     private bool canMove, readyToShoot, detectedTarget;
 
     // Start is called before the first frame update
@@ -127,6 +129,23 @@ public class LaserEnemy : MonoBehaviour
             planetHealthManager.TakeDamage(2);
             laserTickTimers.RemoveAll(i => i == 0);
             yield return new WaitForSeconds(1f);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ShipProjectile"))
+        {
+            TakeDamage();
+        }
+    }
+
+    public void TakeDamage()
+    {
+        health -= 1f;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }
