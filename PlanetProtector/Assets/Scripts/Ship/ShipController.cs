@@ -56,10 +56,10 @@ public class ShipController : MonoBehaviour
         }
     }
 
+    // Add force to the ship, so it can move
     private void FixedUpdate()
     {
-        // Add force to the ship, so it can move
-        AddForceToShip();
+        if (!GameManager.Instance.GamePaused) AddForceToShip();
     }
 
     private void AddForceToShip()

@@ -24,7 +24,12 @@ public class EnemySpawner : MonoBehaviour
     {
         // Check if the GameManager says that the game is started, then start spawning.
         if (GameManager.Instance.GameStarted)
-            isSpawning = true; 
+            isSpawning = true;
+
+        if (GameManager.Instance.GamePaused)
+            isSpawning = false;
+        else if (!GameManager.Instance.GamePaused)
+            isSpawning = true;
 
         // if isSpawning is true, it allowed to start spawning
         if (isSpawning)
