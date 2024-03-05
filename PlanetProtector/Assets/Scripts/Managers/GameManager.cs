@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public bool GamePaused { get { return gamePaused; } set { gamePaused = value; } }
 
     public int playerScore;
+    public int playerHighscore;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,6 +46,14 @@ public class GameManager : MonoBehaviour
     {
         if (gameStarted)
             scoreText.text = "Score: " + playerScore.ToString();
+
+        if (gameEnded)
+            SetHighscore();
+    }
+
+    private void SetHighscore()
+    {
+        
     }
 
     // Scene loading/checking

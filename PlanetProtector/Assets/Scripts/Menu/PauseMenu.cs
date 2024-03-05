@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
     private Canvas canvasUI;
     private Canvas canvasMenu;
+
+    [SerializeField] private TMP_Text highscoreText;
+    [SerializeField] private TMP_Text scoreText;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,6 +37,9 @@ public class PauseMenu : MonoBehaviour
         canvasMenu.enabled = true;
         canvasUI.enabled = false;
         GameManager.Instance.GamePaused = true;
+        Cursor.visible = true;
+
+        scoreText.text = GameManager.Instance.playerScore.ToString();
     }
 
     public void ClosePauseMenu()
@@ -40,6 +47,7 @@ public class PauseMenu : MonoBehaviour
         canvasMenu.enabled = false;
         canvasUI.enabled = true;
         GameManager.Instance.GamePaused = false;
+        Cursor.visible = false;
     }
 
     public void LoadScene(string sceneName)
