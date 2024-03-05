@@ -36,8 +36,8 @@ public class KamikazeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove) MoveTowardsTarget();
-        if (detectedTarget) ChargeTowardsPlanet();
+        if (canMove && !GameManager.Instance.GamePaused) MoveTowardsTarget();
+        if (detectedTarget && !GameManager.Instance.GamePaused) ChargeTowardsPlanet();
     }
 
     private void OnTriggerEnter(Collider other)

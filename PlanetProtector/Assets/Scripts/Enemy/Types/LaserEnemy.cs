@@ -43,9 +43,9 @@ public class LaserEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove) MoveTowardsTarget();
-        if (detectedTarget) RotateGunsTowardTarget();
-        if (readyToShoot) ShootLaser();
+        if (canMove && !GameManager.Instance.GamePaused) MoveTowardsTarget();
+        if (detectedTarget && !GameManager.Instance.GamePaused) RotateGunsTowardTarget();
+        if (readyToShoot && !GameManager.Instance.GamePaused) ShootLaser();
     }
 
     private void OnTriggerEnter(Collider other)

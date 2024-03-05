@@ -40,8 +40,8 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove) MoveTowardsTarget();
-        if (detectedTarget) ChargeTowardsPlanet();
+        if (canMove && !GameManager.Instance.GamePaused) MoveTowardsTarget();
+        if (detectedTarget && !GameManager.Instance.GamePaused) ChargeTowardsPlanet();
 
         asteroidVisual.Rotate(Vector3.up * rotationAsteroidSpeed * Time.deltaTime);
         asteroidVisual.Rotate(Vector3.right * rotationAsteroidSpeed * Time.deltaTime);

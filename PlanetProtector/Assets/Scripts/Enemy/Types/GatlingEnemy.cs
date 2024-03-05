@@ -43,9 +43,9 @@ public class GatlingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove) MoveTowardsTarget();
-        if (detectedTarget) RotateGunsTowardTarget();
-        if (readyToShoot) LaunchProjectile();
+        if (canMove && !GameManager.Instance.GamePaused) MoveTowardsTarget();
+        if (detectedTarget && !GameManager.Instance.GamePaused) RotateGunsTowardTarget();
+        if (readyToShoot && !GameManager.Instance.GamePaused) LaunchProjectile();
     }
 
     private void OnTriggerEnter(Collider other)
