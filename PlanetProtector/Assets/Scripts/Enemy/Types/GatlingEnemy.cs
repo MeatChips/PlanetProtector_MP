@@ -22,7 +22,7 @@ public class GatlingEnemy : MonoBehaviour
     private float health = 14f;
     private int killReward = 6;
 
-    private bool canMove, readyToShoot, detectedTarget;
+    private bool canMove, readyToShoot;
 
     // Start is called before the first frame update
     void Start()
@@ -40,14 +40,12 @@ public class GatlingEnemy : MonoBehaviour
 
         canMove = true;
         readyToShoot = false;
-        detectedTarget = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (canMove && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) MoveTowardsTarget();
-        if (detectedTarget && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) RotateGunsTowardTarget();
         if (readyToShoot && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) LaunchProjectile();
     }
 
@@ -56,8 +54,7 @@ public class GatlingEnemy : MonoBehaviour
         if(other.gameObject.CompareTag("Target"))
         {
             canMove = false;
-            detectedTarget = true;
-            if(detectedTarget) readyToShoot = true;
+            readyToShoot = true;
         }
     }
 
@@ -69,12 +66,6 @@ public class GatlingEnemy : MonoBehaviour
         {
             rb.velocity = transform.forward * thrustSpeed;
         }
-    }
-
-    // Rotate guns
-    private void RotateGunsTowardTarget()
-    {
-        cannonRotationPoint.LookAt(target);
     }
 
     
