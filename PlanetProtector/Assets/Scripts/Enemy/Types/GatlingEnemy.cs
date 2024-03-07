@@ -30,8 +30,11 @@ public class GatlingEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         sphereCol = GetComponent<SphereCollider>();
 
-        target = GameObject.FindGameObjectWithTag("Target").transform;
-        planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
+        if (!GameManager.Instance.gameEnded)
+        {
+            target = GameObject.FindGameObjectWithTag("Target").transform;
+            planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
+        }
 
         sphereCol.radius = sphereColRadius;
 
@@ -43,9 +46,9 @@ public class GatlingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove && !GameManager.Instance.GamePaused) MoveTowardsTarget();
-        if (detectedTarget && !GameManager.Instance.GamePaused) RotateGunsTowardTarget();
-        if (readyToShoot && !GameManager.Instance.GamePaused) LaunchProjectile();
+        if (canMove && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) MoveTowardsTarget();
+        if (detectedTarget && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) RotateGunsTowardTarget();
+        if (readyToShoot && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) LaunchProjectile();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -107,7 +110,7 @@ public class GatlingEnemy : MonoBehaviour
         health -= 1f;
         if (health <= 0)
         {
-            GameManager.Instance.playerScore += killReward;
+            GameManager.Instance.Score += killReward;
             Destroy(this.gameObject);
         }
     }

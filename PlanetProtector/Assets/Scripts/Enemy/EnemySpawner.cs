@@ -23,12 +23,12 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         // Check if the GameManager says that the game is started, then start spawning.
-        if (GameManager.Instance.GameStarted)
+        if (GameManager.Instance.gameStarted)
             isSpawning = true;
 
-        if (GameManager.Instance.GamePaused)
+        if (GameManager.Instance.gamePaused)
             isSpawning = false;
-        else if (!GameManager.Instance.GamePaused)
+        else if (!GameManager.Instance.gamePaused)
             isSpawning = true;
 
         // if isSpawning is true, it allowed to start spawning
@@ -48,6 +48,8 @@ public class EnemySpawner : MonoBehaviour
         Vector3 rndPosWithin;
         rndPosWithin = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         rndPosWithin = transform.TransformPoint(rndPosWithin * .5f); // Set a random position within the object's transform
+
+        SpawnedEnemies.RemoveAll(GameObject => GameObject == null);
 
         if (Time.time > nextSpawn)
         {

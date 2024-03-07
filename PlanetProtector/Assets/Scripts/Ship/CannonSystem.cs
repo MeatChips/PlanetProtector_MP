@@ -33,7 +33,7 @@ public class CannonSystem : MonoBehaviour
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (readyToShoot && shooting && !isOverheated && !GameManager.Instance.GamePaused)
+        if (readyToShoot && shooting && !isOverheated && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded)
         {
             LaunchProjectile();
             Heating(2);

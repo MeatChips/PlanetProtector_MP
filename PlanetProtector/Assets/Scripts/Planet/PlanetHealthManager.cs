@@ -15,20 +15,25 @@ public class PlanetHealthManager : MonoBehaviour
         healthBar.SetMaxNumber(maxHealth);
     }
 
+    private void Update()
+    {
+        if (currentHealth <= 0)
+            Death();
+        else
+            return;
+    }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
         healthBar.SetNumber(currentHealth);
-
-        if (currentHealth <= 0)
-        {
-            Death();
-        }
     }
 
     public void Death()
     {
         Destroy(gameObject);
+        GameManager.Instance.gameEnded = true;
+        GameManager.Instance.gamePaused = true;
     }
 }

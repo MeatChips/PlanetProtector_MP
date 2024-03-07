@@ -2,23 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    private TMP_Text scoreText;
+    public bool gameStarted;
+    public bool gameEnded;
+    public bool gamePaused;
 
-    private bool gameStarted;
-    private bool gameEnded;
-    private bool gamePaused;
-    public bool GameStarted { get { return gameStarted; } set { gameStarted = value; } }
-    public bool GameEnded { get { return gameEnded; } set { gameEnded = value; } }
-    public bool GamePaused { get { return gamePaused; } set { gamePaused = value; } }
-
-    public int playerScore;
-    public int playerHighscore;
+    private int score;
+    private int highscore;
+    public int Score { get { return score; } set { score = value; } }
+    public int Highscore { get { return highscore; } set { highscore = value; } }
 
     // Start is called before the first frame update
     void Awake()
@@ -32,29 +30,32 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        if(scoreText == null)
-            return;
     }
 
     private void Start()
     {
-        GameEnded = false; GamePaused = false;
+        gameEnded = false; gamePaused = false;
     }
 
     private void Update()
     {
         if (gameStarted)
-            scoreText.text = "Score: " + playerScore.ToString();
+        {
+            highscore = PlayerPrefs.GetInt("highscore");
+        }
 
         if (gameEnded)
-            SetHighscore();
+        {
+            if(highscore < score)
+            {
+                highscore = score;
+                PlayerPrefs.SetInt("highscore", highscore);
+                PlayerPrefs.Save();
+
+            }
+        }
     }
 
-    private void SetHighscore()
-    {
-        
-    }
 
     // Scene loading/checking
     private void OnEnable()
@@ -66,8 +67,16 @@ public class GameManager : MonoBehaviour
     {
         if(scene.name == "Main")
         {
-            GameStarted = true;
-            scoreText = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
+            gameStarted = true;
+            gameEnded = false;
+            gamePaused = false;
+        }
+
+        if (scene.name == "MainMenu" || scene.name == "Settings")
+        {
+            gameStarted = false;
+            gameEnded = false;
+            gamePaused = false;
         }
     }
 

@@ -30,8 +30,11 @@ public class LaserEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         sphereCol = GetComponent<SphereCollider>();
 
-        target = GameObject.FindGameObjectWithTag("Target").transform;
-        planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
+        if (!GameManager.Instance.gameEnded)
+        {
+            target = GameObject.FindGameObjectWithTag("Target").transform;
+            planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
+        }
 
         sphereCol.radius = sphereColRadius;
 
@@ -43,9 +46,9 @@ public class LaserEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove && !GameManager.Instance.GamePaused) MoveTowardsTarget();
-        if (detectedTarget && !GameManager.Instance.GamePaused) RotateGunsTowardTarget();
-        if (readyToShoot && !GameManager.Instance.GamePaused) ShootLaser();
+        if (canMove && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) MoveTowardsTarget();
+        if (detectedTarget && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) RotateGunsTowardTarget();
+        if (readyToShoot && !GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) ShootLaser();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -146,7 +149,7 @@ public class LaserEnemy : MonoBehaviour
         health -= 1f;
         if (health <= 0)
         {
-            GameManager.Instance.playerScore += killReward;
+            GameManager.Instance.Score += killReward;
             Destroy(this.gameObject);
         }
     }
