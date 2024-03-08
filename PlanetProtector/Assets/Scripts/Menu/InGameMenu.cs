@@ -11,9 +11,6 @@ public class InGameMenu : MonoBehaviour
     private Canvas canvasMenu;
     private Canvas canvasEnd;
 
-    [SerializeField] private TMP_Text scorePauseScreen;
-    [SerializeField] private TMP_Text scoreEndScreen;
-
     // Start is called before the first frame update
     void Awake()
     {

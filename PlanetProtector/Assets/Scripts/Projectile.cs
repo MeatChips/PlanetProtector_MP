@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float destroyTimer = 40f;
+    private float destroyTimer = 30f;
 
     private void Update()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CannonSystem : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb; // Get the rigidbody instead of the entire gameobject, so you wont have to reference to the rigidbody inside the script.
-    [SerializeField] private float launchForce = 5000f; // The force the projectile gets shot with
+    [SerializeField] private float launchForce = 7000f; // The force the projectile gets shot with
     [SerializeField] private Transform[] firePoints; // The points were they projectiles get fired from
 
     private int maxHeat = 100;

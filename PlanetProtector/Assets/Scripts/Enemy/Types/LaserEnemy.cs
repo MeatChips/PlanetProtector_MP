@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LaserEnemy : MonoBehaviour
 {
-    [SerializeField] private Transform target; // The target it has to fly too and shoot (the planet)
-    [SerializeField] private Transform cannonRotationPoint; // The rotation point for the guns, so they can rotate
+    [SerializeField] private Transform target; // The target it has to fly too and shoot (the human base)
+    [SerializeField] private GameObject[] targets; // Array of targets
     [SerializeField] private float thrustSpeed = 5f; // The ship its speed
     [SerializeField] private float sphereColRadius = 100f; // Radius of detection sphere
     private Rigidbody rb;
@@ -32,8 +32,10 @@ public class LaserEnemy : MonoBehaviour
 
         if (!GameManager.Instance.gameEnded)
         {
-            target = GameObject.FindGameObjectWithTag("Target").transform;
-            planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
+            targets = GameObject.FindGameObjectsWithTag("Target");
+            target = targets[Random.Range(0, targets.Length)].transform;
+            /*            target = GameObject.FindGameObjectWithTag("Target").transform;*/
+            planetHealthManager = GameObject.FindGameObjectWithTag("Target").transform.parent.GetComponent<PlanetHealthManager>();
         }
 
         sphereCol.radius = sphereColRadius;

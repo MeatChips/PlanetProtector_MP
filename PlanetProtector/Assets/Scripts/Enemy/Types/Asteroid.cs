@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    [SerializeField] private Transform target; // The target it has to fly too and shoot (the planet)
+    [SerializeField] private Transform target; // The target it has to fly too and shoot (the human base)
+    [SerializeField] private GameObject[] targets; // Array of targets
     [SerializeField] private float floatSpeed = 5f; // The ship its normal speed
     [SerializeField] private float fallSpeed = 50f; // The ship its charge speed
     private float speed;
@@ -30,8 +31,10 @@ public class Asteroid : MonoBehaviour
 
         if (!GameManager.Instance.gameEnded)
         {
-            target = GameObject.FindGameObjectWithTag("Target").transform;
-            planetHealthManager = GameObject.FindGameObjectWithTag("Target").GetComponent<PlanetHealthManager>();
+            targets = GameObject.FindGameObjectsWithTag("Target");
+            target = targets[Random.Range(0, targets.Length)].transform;
+            /*            target = GameObject.FindGameObjectWithTag("Target").transform;*/
+            planetHealthManager = GameObject.FindGameObjectWithTag("Target").transform.parent.GetComponent<PlanetHealthManager>();
         }
 
         sphereCol.radius = sphereColRadius;

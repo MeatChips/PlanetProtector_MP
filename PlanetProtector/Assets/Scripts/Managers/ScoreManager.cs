@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private TMP_Text scoreText;
 
+    [SerializeField] private EnemySpawner enemySpawnerScript;
+
     private void Start()
     {
         GameManager.Instance.Score = 0;
@@ -39,5 +41,14 @@ public class ScoreManager : MonoBehaviour
 
         highscoreTextEndScreen.text = PlayerPrefs.GetInt("highscore").ToString();
         highscoreTextPauseScreen.text = PlayerPrefs.GetInt("highscore").ToString();
+
+        if(GameManager.Instance.Score >= 500)
+            enemySpawnerScript.maxEnemies = 30;
+        else if(GameManager.Instance.Score >= 1000)
+            enemySpawnerScript.maxEnemies = 40;
+        else if (GameManager.Instance.Score >= 1500)
+            enemySpawnerScript.maxEnemies = 50;
+        else if (GameManager.Instance.Score >= 2000)
+            enemySpawnerScript.maxEnemies = 60;
     }
 }

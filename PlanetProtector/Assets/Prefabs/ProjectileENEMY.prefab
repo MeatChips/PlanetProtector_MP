@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4642286168791452175}
   - component: {fileID: 7134691351651009706}
   - component: {fileID: 597253026341419778}
+  - component: {fileID: 6838541277243483112}
   m_Layer: 0
   m_Name: ProjectileENEMY
   m_TagString: Untagged
@@ -83,6 +84,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6838541277243483112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151519804648108818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e0f9ee399154c419fd041bc11f9502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6656678083549495289
 GameObject:
   m_ObjectHideFlags: 0
