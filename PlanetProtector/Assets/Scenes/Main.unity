@@ -6108,6 +6108,7 @@ MonoBehaviour:
   speedMultiplierAngle: 0.5
   speedRollMultiplierAngle: 0.05
   customCursorVisual: {fileID: 913224690}
+  deadZoneRadius: 0.1
 --- !u!54 &2140548836
 Rigidbody:
   m_ObjectHideFlags: 0
