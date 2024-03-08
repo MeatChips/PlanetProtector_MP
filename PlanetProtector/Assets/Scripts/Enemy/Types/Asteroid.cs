@@ -8,6 +8,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private GameObject[] targets; // Array of targets
     [SerializeField] private float floatSpeed = 5f; // The ship its normal speed
     [SerializeField] private float fallSpeed = 50f; // The ship its charge speed
+    [SerializeField] private GameObject explosionParticle;
     private float speed;
     [SerializeField] private float sphereColRadius = 100f; // Radius of detection sphere
     private Rigidbody rb;
@@ -102,8 +103,10 @@ public class Asteroid : MonoBehaviour
         health -= 1f;
         if (health <= 0)
         {
+            GameObject explosionEffectGO = Instantiate(explosionParticle, transform.position, transform.rotation);
+            Destroy(explosionEffectGO, 2f);
             GameManager.Instance.Score += killReward;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

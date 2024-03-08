@@ -268,6 +268,8 @@ MonoBehaviour:
   targets: []
   thrustSpeed: 5
   sphereColRadius: 100
+  explosionParticle: {fileID: 1349333875162952348, guid: 3453a25b790ba204eac8e75df7d8e974,
+    type: 3}
   laserTickTimers: 
   laserOrigin: {fileID: 8457966276865344917}
   laserLine: {fileID: 44358998386626054}

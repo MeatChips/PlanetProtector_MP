@@ -8,6 +8,7 @@ public class GatlingEnemy : MonoBehaviour
     [SerializeField] private GameObject[] targets; // Array of targets
     [SerializeField] private float thrustSpeed = 5f; // The ship its speed
     [SerializeField] private float sphereColRadius = 100f;
+    [SerializeField] private GameObject explosionParticle;
     private Rigidbody rb;
     private SphereCollider sphereCol;
     private PlanetHealthManager planetHealthManager;
@@ -102,8 +103,10 @@ public class GatlingEnemy : MonoBehaviour
         health -= 1f;
         if (health <= 0)
         {
+            GameObject explosionEffectGO = Instantiate(explosionParticle, transform.position, transform.rotation);
+            Destroy(explosionEffectGO, 2f);
             GameManager.Instance.Score += killReward;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

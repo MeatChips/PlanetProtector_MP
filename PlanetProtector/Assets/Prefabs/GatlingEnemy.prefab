@@ -432,6 +432,8 @@ MonoBehaviour:
   targets: []
   thrustSpeed: 5
   sphereColRadius: 100
+  explosionParticle: {fileID: 1349333875162952348, guid: 3453a25b790ba204eac8e75df7d8e974,
+    type: 3}
   rbProjectile: {fileID: 597253026341419778, guid: e24ce0481eb19424584554125be0f6a7,
     type: 3}
   launchForce: 5000

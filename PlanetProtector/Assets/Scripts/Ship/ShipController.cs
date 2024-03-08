@@ -8,6 +8,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float speedMultiplier = 1f;
     [SerializeField] private float speedMultiplierAngle = 0.5f;
     [SerializeField] private float speedRollMultiplierAngle = 0.05f;
+    [SerializeField] private GameObject explosionParticle;
 
     private float verticalMove;
     private float horizontalMove;
@@ -87,6 +88,8 @@ public class ShipController : MonoBehaviour
 
     public void ShipDeath()
     {
+        GameObject explosionEffectGO = Instantiate(explosionParticle, transform.position, transform.rotation);
+        Destroy(explosionEffectGO, 2f);
         Destroy(gameObject);
         GameManager.Instance.gameEnded = true;
         GameManager.Instance.gamePaused = true;

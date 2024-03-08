@@ -8,6 +8,7 @@ public class KamikazeEnemy : MonoBehaviour
     [SerializeField] private GameObject[] targets; // Array of targets
     [SerializeField] private float thrustSpeed = 5f; // The ship its normal speed
     [SerializeField] private float chargeSpeed = 50f; // The ship its charge speed
+    [SerializeField] private GameObject explosionParticle;
     private float speed;
     [SerializeField] private float sphereColRadius = 100f; // Radius of detection sphere
     private Rigidbody rb;
@@ -80,7 +81,9 @@ public class KamikazeEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Target"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+            GameObject explosionEffectGO = Instantiate(explosionParticle, transform.position, transform.rotation);
+            Destroy(explosionEffectGO, 2f);
             planetHealthManager.TakeDamage(25);
         }
 
@@ -96,7 +99,9 @@ public class KamikazeEnemy : MonoBehaviour
         if(health <= 0)
         {
             GameManager.Instance.Score += killReward;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+            GameObject explosionEffectGO = Instantiate(explosionParticle, transform.position, transform.rotation);
+            Destroy(explosionEffectGO, 2f);
         }
     }
 }

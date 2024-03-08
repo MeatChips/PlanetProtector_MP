@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1862387852315135411}
   - component: {fileID: 2829863973740991136}
   m_Layer: 0
-  m_Name: Asteroid (5)
+  m_Name: AsteroidVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,4 +204,6 @@ MonoBehaviour:
   targets: []
   floatSpeed: 5
   fallSpeed: 50
+  explosionParticle: {fileID: 1349333875162952348, guid: 86f1d81d88375714995ac4a1bc3ab7e2,
+    type: 3}
   sphereColRadius: 100
