@@ -100,7 +100,7 @@ MonoBehaviour:
   cannonRotationPoint: {fileID: 4768622833777229884}
   thrustSpeed: 5
   sphereColRadius: 100
-  rbProjectile: {fileID: 3371152222774747738, guid: 56f0ece329577894290060e47350c0cf,
+  rbProjectile: {fileID: 597253026341419778, guid: e24ce0481eb19424584554125be0f6a7,
     type: 3}
   launchForce: 5000
   firePoints:

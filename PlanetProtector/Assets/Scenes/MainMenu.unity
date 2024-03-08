@@ -648,8 +648,6 @@ MonoBehaviour:
   gameStarted: 0
   gameEnded: 0
   gamePaused: 0
-  playerScore: 0
-  playerHighscore: 0
 --- !u!1 &1114077984
 GameObject:
   m_ObjectHideFlags: 0
