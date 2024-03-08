@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Target
   - ShipProjectile
+  - Enemy
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

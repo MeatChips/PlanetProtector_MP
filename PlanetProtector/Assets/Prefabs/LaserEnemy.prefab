@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 2371621802861853454}
   m_Layer: 0
   m_Name: LaserEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,9 +265,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  cannonRotationPoint: {fileID: 424626055343247120}
+  targets: []
   thrustSpeed: 5
   sphereColRadius: 100
+  laserTickTimers: 
   laserOrigin: {fileID: 8457966276865344917}
   laserLine: {fileID: 44358998386626054}
   laserTime: 10

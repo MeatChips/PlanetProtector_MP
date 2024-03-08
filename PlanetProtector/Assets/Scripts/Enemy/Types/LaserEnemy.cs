@@ -12,6 +12,7 @@ public class LaserEnemy : MonoBehaviour
     private SphereCollider sphereCol;
 
     private PlanetHealthManager planetHealthManager;
+    private ShipController shipController;
     public List<int> laserTickTimers = new List<int>();
 
     [SerializeField] private Transform laserOrigin; // Origin from where to laser is getting shot
@@ -29,6 +30,7 @@ public class LaserEnemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         sphereCol = GetComponent<SphereCollider>();
+        shipController = GameObject.FindGameObjectWithTag("Player").GetComponent<ShipController>();
 
         if (!GameManager.Instance.gameEnded)
         {
@@ -85,6 +87,10 @@ public class LaserEnemy : MonoBehaviour
             laserLine.SetPosition(1, hit.point);
             laserTime -= Time.deltaTime;
             StartLaserDamage(4);
+            if (hit.collider.CompareTag("Player"))
+            {
+                shipController.ShipDeath();
+            }
         }
 
         if(laserTime <= 0)

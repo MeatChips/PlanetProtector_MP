@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 3738606751736429279}
   m_Layer: 0
   m_Name: GatlingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  cannonRotationPoint: {fileID: 4768622833777229884}
+  targets: []
   thrustSpeed: 5
   sphereColRadius: 100
   rbProjectile: {fileID: 597253026341419778, guid: e24ce0481eb19424584554125be0f6a7,

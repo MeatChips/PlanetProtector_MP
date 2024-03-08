@@ -25,6 +25,9 @@ public class CannonSystem : MonoBehaviour
         overheatBar.SetMaxNumber(maxHeat);
         readyToShoot = true;
         isOverheated = false;
+
+
+        Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     // Update is called once per frame

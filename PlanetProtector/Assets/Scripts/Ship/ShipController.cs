@@ -75,12 +75,20 @@ public class ShipController : MonoBehaviour
         // Rolling
         rb.AddTorque(rb.transform.forward * speedRollMultiplierAngle * rollInput, ForceMode.VelocityChange);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
+        {
+            Destroy(collision.gameObject);
+            ShipDeath();
+        }
+    }
+
+    public void ShipDeath()
+    {
+        Destroy(gameObject);
+        GameManager.Instance.gameEnded = true;
+        GameManager.Instance.gamePaused = true;
+    }
 }
-
-/*
-THINGS TO ADD NEXT TIME:
-
-- Cursor confined in a smaller space 
-- Rotate towards cursor until it is at the position
-
-*/
