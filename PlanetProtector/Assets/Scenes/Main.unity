@@ -3306,6 +3306,7 @@ MonoBehaviour:
   - {fileID: 8406133044723564377, guid: 1f3c275fbd4e9474dab9cf7bd4e084e2, type: 3}
   minRateToSpawn: 2
   maxRateToSpawn: 6
+  outerCircle: {fileID: 2028756324403440352}
   isSpawning: 0
   newEnemy: 0
   maxEnemies: 20

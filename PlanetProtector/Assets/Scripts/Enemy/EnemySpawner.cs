@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] Enemies;
     [SerializeField] private float minRateToSpawn = 2f;
     [SerializeField] private float maxRateToSpawn = 6f;
+    [SerializeField] private GameObject outerCircle;
+    private float outerCircleRotationSpeed = 20f;
     private float nextSpawn = 0f;
 
     public bool isSpawning, newEnemy;
@@ -22,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        outerCircle.transform.Rotate(Vector3.up * outerCircleRotationSpeed * Time.deltaTime);
+
         // Check if the GameManager says that the game is started, then start spawning.
         if (GameManager.Instance.gameStarted)
             isSpawning = true;
