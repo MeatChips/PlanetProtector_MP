@@ -41,10 +41,6 @@ public class ShipController : MonoBehaviour
         // Timer goes down
         timer -= Time.deltaTime;
 
-        verticalMove = Input.GetAxis("Vertical"); // A & D
-        horizontalMove = Input.GetAxis("Horizontal"); // W & S
-        rollInput = Input.GetAxis("Roll"); // E & Q
-
         if (takeMouseInput && timer <= 0f) // Check if the ship can use mouse input & To prevent the space ship from spinning in the beginning, wait a moment until    
         {
             mouseInputX = Input.GetAxis("Mouse X"); // Mouse X position
@@ -66,15 +62,40 @@ public class ShipController : MonoBehaviour
     private void AddForceToShip()
     {
         // Forwards/Backwards & Left/Right
-        rb.AddForce(rb.transform.TransformDirection(Vector3.forward) * verticalMove * speedMultiplier, ForceMode.VelocityChange);
-        rb.AddForce(rb.transform.TransformDirection(Vector3.right) * horizontalMove * speedMultiplier, ForceMode.VelocityChange);
+        if (Input.GetKey(KeyCode.W))
+        {
+            rb.AddForce(rb.transform.TransformDirection(Vector3.forward) * speedMultiplier, ForceMode.VelocityChange);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            rb.AddForce(rb.transform.TransformDirection(Vector3.back) * speedMultiplier, ForceMode.VelocityChange);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce(rb.transform.TransformDirection(Vector3.right) * speedMultiplier, ForceMode.VelocityChange);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(rb.transform.TransformDirection(Vector3.left) * speedMultiplier, ForceMode.VelocityChange);
+        }
 
         // Mouse Position
         rb.AddTorque(rb.transform.right * speedMultiplierAngle * mouseInputY * -1, ForceMode.VelocityChange);
         rb.AddTorque(rb.transform.up * speedMultiplierAngle * mouseInputX, ForceMode.VelocityChange);
 
         // Rolling
-        rb.AddTorque(rb.transform.forward * speedRollMultiplierAngle * rollInput, ForceMode.VelocityChange);
+        if (Input.GetKey(KeyCode.Q))
+        {
+            rb.AddTorque(rb.transform.forward * speedRollMultiplierAngle, ForceMode.VelocityChange);
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            rb.AddTorque(rb.transform.forward * -speedRollMultiplierAngle, ForceMode.VelocityChange);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
