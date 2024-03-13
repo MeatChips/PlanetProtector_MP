@@ -18,6 +18,17 @@ public class GameManager : MonoBehaviour
     public int Score { get { return score; } set { score = value; } }
     public int Highscore { get { return highscore; } set { highscore = value; } }
 
+    private float masterVolume;
+    private float musicVolume;
+    private float sfxVolume;
+    private float ambienceVolume;
+    public float MasterVolume { get { return masterVolume; } set { masterVolume = value; } }
+    public float MusicVolume { get { return musicVolume; } set { musicVolume = value; } }
+    public float SfxVolume { get { return sfxVolume; } set { sfxVolume = value; } }
+    public float AmbienceVolume { get { return ambienceVolume; } set { ambienceVolume = value; } }
+
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,6 +41,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        masterVolume = PlayerPrefs.GetFloat("mastervolume");
+        musicVolume = PlayerPrefs.GetFloat("musicvolume");
+        sfxVolume = PlayerPrefs.GetFloat("sfxvolume");
+        ambienceVolume = PlayerPrefs.GetFloat("ambiencevolume");
     }
 
     private void Start()

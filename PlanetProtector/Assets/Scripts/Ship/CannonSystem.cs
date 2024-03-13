@@ -7,6 +7,7 @@ public class CannonSystem : MonoBehaviour
     [SerializeField] private Rigidbody rb; // Get the rigidbody instead of the entire gameobject, so you wont have to reference to the rigidbody inside the script.
     [SerializeField] private float launchForce = 7000f; // The force the projectile gets shot with
     [SerializeField] private Transform[] firePoints; // The points were they projectiles get fired from
+    private AudioSource audioSource;
 
     private int maxHeat = 100;
     [SerializeField] private int currentHeat;
@@ -26,7 +27,7 @@ public class CannonSystem : MonoBehaviour
         readyToShoot = true;
         isOverheated = false;
 
-
+        audioSource = GetComponent<AudioSource>();
         Physics.IgnoreCollision(rb.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
@@ -66,6 +67,7 @@ public class CannonSystem : MonoBehaviour
         {
             var projectileInstance = Instantiate(rb, firePoint.position, firePoint.rotation); // Spawn the projectile at the firepoints
             projectileInstance.AddForce(firePoint.forward * launchForce); // Add the launchforce so it goes forward
+            audioSource.Play();
         }
 
         if (allowButtonHold)
