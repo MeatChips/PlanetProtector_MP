@@ -2997,7 +2997,7 @@ Transform:
   m_GameObject: {fileID: 875449847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1764, y: 0.1969, z: 0.3947}
+  m_LocalPosition: {x: 0.1764, y: 0.1969, z: 0.3747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3300,9 +3300,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 5880606771228075512, guid: 0e92da1d96fd5c04180a5e8ceab01fd8, type: 3}
-  - {fileID: 2427196285509147041, guid: c3303f8b735e8d94a9f76b3c5fc75772, type: 3}
-  - {fileID: 5633509865608285140, guid: dbec25bb985f8c944becc9132d17c3b6, type: 3}
   - {fileID: 8406133044723564377, guid: 1f3c275fbd4e9474dab9cf7bd4e084e2, type: 3}
   minRateToSpawn: 2
   maxRateToSpawn: 6
@@ -3346,7 +3343,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -3913,7 +3910,7 @@ Transform:
   m_GameObject: {fileID: 1358313731}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.4819}
+  m_LocalPosition: {x: 0, y: 0, z: 0.4621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5922,7 +5919,7 @@ Transform:
   m_GameObject: {fileID: 2068676614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1655, y: 0.1969, z: 0.4019}
+  m_LocalPosition: {x: -0.1655, y: 0.1969, z: 0.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6364,7 +6361,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -7274899089069362257, guid: 7157aee6a6a27734b8e9e5c111e1627b,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 5064a4355cc25d145acb8a737458f3cd, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -6409,7 +6406,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

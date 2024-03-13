@@ -239,4 +239,6 @@ MonoBehaviour:
   chargeSpeed: 50
   explosionParticle: {fileID: 1349333875162952348, guid: 3453a25b790ba204eac8e75df7d8e974,
     type: 3}
+  explosionSound: {fileID: 7006579215291387084, guid: 730dd2aa11a6d4345b7b70ed4133ebd9,
+    type: 3}
   sphereColRadius: 100

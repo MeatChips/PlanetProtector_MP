@@ -206,4 +206,6 @@ MonoBehaviour:
   fallSpeed: 50
   explosionParticle: {fileID: 1349333875162952348, guid: 86f1d81d88375714995ac4a1bc3ab7e2,
     type: 3}
+  explosionSound: {fileID: 7006579215291387084, guid: fd4305ca5da738b46b8c7e2562445b59,
+    type: 3}
   sphereColRadius: 100

@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class AudioSettingsManager : MonoBehaviour
 {
+    public static AudioSettingsManager Instance;
+
     private TMP_Text masterVolumeText;
     private TMP_Text musicVolumeText;
     private TMP_Text ambienceVolumeText;
@@ -24,7 +26,15 @@ public class AudioSettingsManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         // Checking if there is a volume, if not assign 0.75
         if (!PlayerPrefs.HasKey("mastervolume"))
