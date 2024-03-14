@@ -24,8 +24,13 @@ public class AudioSettingsManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup ambienceMixerGroup;
     [SerializeField] private AudioMixerGroup sfxMixerGroup;
 
+    private AudioSource audioSource;
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+
         if (Instance == null)
         {
             Instance = this;
@@ -181,6 +186,16 @@ public class AudioSettingsManager : MonoBehaviour
             musicVolumeText.text = ((int)(PlayerPrefs.GetFloat("musicvolume") * 100)).ToString();
             sfxVolumeText.text = ((int)(PlayerPrefs.GetFloat("sfxvolume") * 100)).ToString();
             ambienceVolumeText.text = ((int)(PlayerPrefs.GetFloat("ambiencevolume") * 100)).ToString();
+        }
+
+        if(scene.name == "MainMenu" || scene.name == "Settings")
+        {
+            audioSource.pitch = 1;
+        }
+
+        if (scene.name == "Main")
+        {
+            audioSource.pitch = 1.5f;
         }
     }
 
