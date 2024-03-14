@@ -27,7 +27,11 @@ public class GameManager : MonoBehaviour
     public float SfxVolume { get { return sfxVolume; } set { sfxVolume = value; } }
     public float AmbienceVolume { get { return ambienceVolume; } set { ambienceVolume = value; } }
 
+    private float sensitivityX;
+    private float sensitivityY;
 
+    public float SensitivityX { get { return sensitivityX; } set { sensitivityX = value; } }
+    public float SensitivityY { get { return sensitivityY; } set { sensitivityY = value; } }
 
     // Start is called before the first frame update
     void Awake()
@@ -41,16 +45,18 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        masterVolume = PlayerPrefs.GetFloat("mastervolume");
-        musicVolume = PlayerPrefs.GetFloat("musicvolume");
-        sfxVolume = PlayerPrefs.GetFloat("sfxvolume");
-        ambienceVolume = PlayerPrefs.GetFloat("ambiencevolume");
     }
 
     private void Start()
     {
         gameEnded = false; gamePaused = false;
+
+        masterVolume = PlayerPrefs.GetFloat("mastervolume");
+        musicVolume = PlayerPrefs.GetFloat("musicvolume");
+        sfxVolume = PlayerPrefs.GetFloat("sfxvolume");
+        ambienceVolume = PlayerPrefs.GetFloat("ambiencevolume");
+        sensitivityX = PlayerPrefs.GetInt("sensx");
+        sensitivityY = PlayerPrefs.GetInt("sensy");
     }
 
     private void Update()
@@ -70,6 +76,9 @@ public class GameManager : MonoBehaviour
 
             }
         }
+
+        Debug.Log(SensitivityX + " = SENS X");
+        Debug.Log(SensitivityY + " = SENS Y");
     }
 
 

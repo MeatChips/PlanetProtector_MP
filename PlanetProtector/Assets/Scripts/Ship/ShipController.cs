@@ -5,21 +5,19 @@ using UnityEngine;
 public class ShipController : MonoBehaviour
 {
     // Mulitpliers for the ship's movement
-    [SerializeField] private float speedMultiplier = 1f;
-    [SerializeField] private float speedMultiplierAngle = 0.5f;
+    [SerializeField] private float speedForwardMultiplier = 1f;
+    [SerializeField] private float speedBackwardMultiplier = .7f;
+    [SerializeField] private float speedLeftRightMultiplier = .8f;
     [SerializeField] private float speedRollMultiplierAngle = 0.05f;
     [SerializeField] private GameObject explosionParticle;
 
-    private float verticalMove;
-    private float horizontalMove;
     private float mouseInputX;
     private float mouseInputY;
-    private float rollInput;
 
     private bool takeMouseInput;
 
     Rigidbody rb;
-    float timer = 1f;
+    float timer = .1f;
     [SerializeField] private Transform customCursorVisual; // Custom Cursor
 
     private void Start()
@@ -64,27 +62,27 @@ public class ShipController : MonoBehaviour
         // Forwards/Backwards & Left/Right
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce(rb.transform.TransformDirection(Vector3.forward) * speedMultiplier, ForceMode.VelocityChange);
+            rb.AddForce(rb.transform.TransformDirection(Vector3.forward) * speedForwardMultiplier, ForceMode.VelocityChange);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            rb.AddForce(rb.transform.TransformDirection(Vector3.back) * speedMultiplier, ForceMode.VelocityChange);
+            rb.AddForce(rb.transform.TransformDirection(Vector3.back) * speedBackwardMultiplier, ForceMode.VelocityChange);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(rb.transform.TransformDirection(Vector3.right) * speedMultiplier, ForceMode.VelocityChange);
+            rb.AddForce(rb.transform.TransformDirection(Vector3.right) * speedLeftRightMultiplier, ForceMode.VelocityChange);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(rb.transform.TransformDirection(Vector3.left) * speedMultiplier, ForceMode.VelocityChange);
+            rb.AddForce(rb.transform.TransformDirection(Vector3.left) * speedLeftRightMultiplier, ForceMode.VelocityChange);
         }
 
-        // Mouse Position
-        rb.AddTorque(rb.transform.right * speedMultiplierAngle * mouseInputY * -1, ForceMode.VelocityChange);
-        rb.AddTorque(rb.transform.up * speedMultiplierAngle * mouseInputX, ForceMode.VelocityChange);
+        // Mouse Position -- / 1000f otherwise the number would be too big and the rotation of the ship would be too fast.
+        rb.AddTorque(rb.transform.right * (GameManager.Instance.SensitivityY / 1000f) * mouseInputY * -1, ForceMode.VelocityChange);
+        rb.AddTorque(rb.transform.up * (GameManager.Instance.SensitivityX / 1000f) * mouseInputX, ForceMode.VelocityChange);
 
         // Rolling
         if (Input.GetKey(KeyCode.Q))
