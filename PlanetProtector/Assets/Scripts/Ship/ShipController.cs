@@ -18,14 +18,13 @@ public class ShipController : MonoBehaviour
 
     Rigidbody rb;
     float timer = .1f;
-    [SerializeField] private Transform customCursorVisual; // Custom Cursor
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>(); // Get rigidbody
 
         // Make the cursor invisible and confine it to the game window
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         takeMouseInput = true;
@@ -33,9 +32,6 @@ public class ShipController : MonoBehaviour
 
     private void Update()
     {
-        // Set the custom cursor to the position of the mouse position
-        customCursorVisual.position = Input.mousePosition;
-
         // Timer goes down
         timer -= Time.deltaTime;
 

@@ -3036,78 +3036,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1234838590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &913224689
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 913224690}
-  - component: {fileID: 913224692}
-  - component: {fileID: 913224691}
-  m_Layer: 5
-  m_Name: CrosshairCursor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &913224690
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913224689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2038525723}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &913224691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913224689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: d2a185a017cda6843bffb59024f7a5ff, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &913224692
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913224689}
-  m_CullTransparentMesh: 1
 --- !u!1 &931302489
 GameObject:
   m_ObjectHideFlags: 0
@@ -4010,9 +3938,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462007384}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2008824905}
@@ -4023,13 +3951,13 @@ RectTransform:
   - {fileID: 530743224}
   - {fileID: 480292085}
   - {fileID: 978714528}
-  m_Father: {fileID: 1587798521}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1491629137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4387,7 +4315,6 @@ RectTransform:
   - {fileID: 77673560}
   - {fileID: 843506872}
   - {fileID: 158982831}
-  - {fileID: 1462007389}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5546,7 +5473,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 629038123}
-  - {fileID: 913224690}
   - {fileID: 1531287862}
   - {fileID: 391349920}
   - {fileID: 107722804}
@@ -10806,7 +10732,6 @@ MonoBehaviour:
   speedRollMultiplierAngle: 0.05
   explosionParticle: {fileID: 1349333875162952348, guid: 3453a25b790ba204eac8e75df7d8e974,
     type: 3}
-  customCursorVisual: {fileID: 913224690}
 --- !u!54 &2140548836
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10847,7 +10772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8648537049310642092, guid: 3b7861f0c1c743c4b96c6ea025811699, type: 3}
-  launchForce: 5000
+  launchForce: 10000
   firePoints:
   - {fileID: 898349630}
   - {fileID: 1078623158}
@@ -16175,6 +16100,7 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 2038525723}
   - {fileID: 1587798521}
+  - {fileID: 1462007389}
   - {fileID: 138179167}
   - {fileID: 1491629139}
   - {fileID: 2102610770}

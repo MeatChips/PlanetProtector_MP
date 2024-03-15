@@ -44,6 +44,7 @@ public class InGameMenu : MonoBehaviour
         canvasUI.enabled = false;
         GameManager.Instance.gamePaused = true;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void ClosePauseMenu()
@@ -52,6 +53,7 @@ public class InGameMenu : MonoBehaviour
         canvasUI.enabled = true;
         GameManager.Instance.gamePaused = false;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void OpenEndMenu()
@@ -60,6 +62,7 @@ public class InGameMenu : MonoBehaviour
         canvasUI.enabled = false;
         GameManager.Instance.gameEnded = true;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void LoadScene(string sceneName)
