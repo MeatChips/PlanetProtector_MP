@@ -8,10 +8,10 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private TMP_Text highscoreText;
 
-    private void Start()
+/*    private void Start()
     {
         highscoreText.text = PlayerPrefs.GetInt("highscore").ToString();
-    }
+    }*/
 
     public void LoadScene(string sceneName)
     {
@@ -21,5 +21,23 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode)
+    {
+        if (scene.name == "MainMenu")
+        {
+            highscoreText.text = PlayerPrefs.GetInt("highscore").ToString();
+        }
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
