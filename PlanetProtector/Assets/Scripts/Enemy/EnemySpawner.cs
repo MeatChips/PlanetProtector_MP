@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        newEnemy = true;
+        newEnemy = false;
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (GameManager.Instance.gamePaused)
             isSpawning = false;
-        else if (!GameManager.Instance.gamePaused)
+        else if (!GameManager.Instance.gamePaused && GameManager.Instance.gameStarted)
             isSpawning = true;
 
         // if isSpawning is true, it allowed to start spawning
@@ -40,8 +40,11 @@ public class EnemySpawner : MonoBehaviour
             if (newEnemy)
                 StartSpawning();
 
-        if (SpawnedEnemies.Count >= maxEnemies) newEnemy = false;
-        else newEnemy = true;
+        if (GameManager.Instance.gameStarted)
+        {
+            if (SpawnedEnemies.Count >= maxEnemies) newEnemy = false;
+            else newEnemy = true;
+        }
     }
 
     private void StartSpawning()

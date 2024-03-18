@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameEnded = false; gamePaused = false;
+        gameEnded = false; gamePaused = true;
 
         masterVolume = PlayerPrefs.GetFloat("mastervolume");
         musicVolume = PlayerPrefs.GetFloat("musicvolume");
@@ -76,9 +76,6 @@ public class GameManager : MonoBehaviour
 
             }
         }
-
-        Debug.Log(SensitivityX + " = SENS X");
-        Debug.Log(SensitivityY + " = SENS Y");
     }
 
 
@@ -92,7 +89,6 @@ public class GameManager : MonoBehaviour
     {
         if(scene.name == "Main")
         {
-            gameStarted = true;
             gameEnded = false;
             gamePaused = false;
         }

@@ -23,10 +23,6 @@ public class ShipController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>(); // Get rigidbody
 
-        // Make the cursor invisible and confine it to the game window
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         takeMouseInput = true;
     }
 
@@ -50,7 +46,7 @@ public class ShipController : MonoBehaviour
     // Add force to the ship, so it can move
     private void FixedUpdate()
     {
-        if (!GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded) AddForceToShip();
+        if (!GameManager.Instance.gamePaused && !GameManager.Instance.gameEnded && GameManager.Instance.gameStarted) AddForceToShip();
     }
 
     private void AddForceToShip()

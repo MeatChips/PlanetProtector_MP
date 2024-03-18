@@ -728,8 +728,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Developer: MeatChips\nArtist: MeatChips\nSound Designer: MeatChips\n\nAssets:
-    \nAmbience = Vilkas Sound\nSkybox = PULSAR BYTES\n\nTesters:\n- UNKNOWN\n- UNKNOWN\n-
-    UNKNOWN\n- UNKNOWN"
+    \nAmbience = Vilkas Sound\nSkybox = PULSAR BYTES\n\nTesters:\n- Emiel131517\n-
+    Alex1083\n- UNKNOWN\n- UNKNOWN"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
