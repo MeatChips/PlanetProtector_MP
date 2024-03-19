@@ -42,6 +42,11 @@ public class InGameMenu : MonoBehaviour
             if (!GameManager.Instance.gamePaused) OpenPauseMenu();
             else ClosePauseMenu();
         }
+
+        if (GameManager.Instance.gameEnded)
+        {
+            OpenEndMenu();
+        }
     }
 
     public void OpenPauseMenu()

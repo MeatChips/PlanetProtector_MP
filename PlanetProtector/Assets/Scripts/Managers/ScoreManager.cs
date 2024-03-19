@@ -25,7 +25,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.Instance.gamePaused)
+        if (!GameManager.Instance.gamePaused && GameManager.Instance.gameStarted)
         {
             timePassed += Time.deltaTime;
             if (timePassed > timeUntilUpdate)
