@@ -8,6 +8,8 @@ TagManager:
   - ShipProjectile
   - Enemy
   - EnemyProjectile
+  - Planet
+  - Wormhole
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class GatlingEnemy : MonoBehaviour
     [SerializeField] private float thrustSpeed = 5f; // The ship its speed
     [SerializeField] private float sphereColRadius = 100f;
     [SerializeField] private GameObject explosionParticle;
+
     private Rigidbody rb;
     private SphereCollider sphereCol;
     private PlanetHealthManager planetHealthManager;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private GameObject hitmarker;
     private float destroyTimer = 30f;
 
     private void Update()
@@ -19,6 +20,13 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject)
         {
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            GameObject Hitmarker = Instantiate(hitmarker, transform.position, transform.rotation);
+            Destroy(Hitmarker, .1f);
             Destroy(this.gameObject);
         }
     }

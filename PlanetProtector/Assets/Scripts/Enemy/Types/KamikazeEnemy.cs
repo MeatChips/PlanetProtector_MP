@@ -10,8 +10,9 @@ public class KamikazeEnemy : MonoBehaviour
     [SerializeField] private float chargeSpeed = 50f; // The ship its charge speed
     [SerializeField] private GameObject explosionParticle;
     [SerializeField] private GameObject explosionSound;
-    private float speed;
     [SerializeField] private float sphereColRadius = 100f; // Radius of detection sphere
+
+    private float speed;
     private Rigidbody rb;
     private SphereCollider sphereCol;
     private PlanetHealthManager planetHealthManager;

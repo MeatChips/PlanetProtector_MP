@@ -75,6 +75,7 @@ public class InGameMenu : MonoBehaviour
         canvasEnd.enabled = true;
         canvasUI.enabled = false;
         GameManager.Instance.gameEnded = true;
+        GameManager.Instance.gameStarted = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }

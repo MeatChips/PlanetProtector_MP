@@ -36,11 +36,6 @@ public class ShipController : MonoBehaviour
             mouseInputX = Input.GetAxis("Mouse X"); // Mouse X position
             mouseInputY = Input.GetAxis("Mouse Y"); // Mouse Y position
         }
-        
-        if (Input.GetKeyDown(KeyCode.X)) // Can it use mouse input or not
-        {
-            takeMouseInput = !takeMouseInput;
-        }
     }
 
     // Add force to the ship, so it can move
@@ -93,6 +88,11 @@ public class ShipController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
         {
             Destroy(collision.gameObject);
+            ShipDeath();
+        }
+
+        if(collision.gameObject.CompareTag("Planet") || collision.gameObject.CompareTag("Wormhole"))
+        {
             ShipDeath();
         }
     }
