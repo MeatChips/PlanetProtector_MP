@@ -91,7 +91,15 @@ public class ShipController : MonoBehaviour
             ShipDeath();
         }
 
-        if(collision.gameObject.CompareTag("Planet") || collision.gameObject.CompareTag("Wormhole"))
+        if(collision.gameObject.CompareTag("Planet") || collision.gameObject.CompareTag("OuterCircle"))
+        {
+            ShipDeath();
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Wormhole"))
         {
             ShipDeath();
         }

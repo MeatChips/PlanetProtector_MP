@@ -10,6 +10,7 @@ TagManager:
   - EnemyProjectile
   - Planet
   - Wormhole
+  - OuterCircle
   layers:
   - Default
   - TransparentFX
