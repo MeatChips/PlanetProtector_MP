@@ -5,16 +5,17 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] Enemies;
-    [SerializeField] private float minRateToSpawn = 2f;
-    [SerializeField] private float maxRateToSpawn = 6f;
     [SerializeField] private GameObject outerCircle;
+    private float minRateToSpawn = 2f;
+    private float maxRateToSpawn = 6f;
     private float outerCircleRotationSpeed = 20f;
     private float nextSpawn = 0f;
+    
+    private List<GameObject> SpawnedEnemies = new List<GameObject>();
 
-    public bool isSpawning, newEnemy;
+    private bool isSpawning, newEnemy;
     public int maxEnemies;
 
-    [SerializeField] private List<GameObject> SpawnedEnemies = new List<GameObject>();
 
     void Start()
     {

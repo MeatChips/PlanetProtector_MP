@@ -12,19 +12,9 @@ public class SettingsManager : MonoBehaviour
         ChangeSettingsMenu(0);
     }
 
-    public void VideoSettingsSwitch()
+    public void NextMenu(int pageNumber)
     {
-        ChangeSettingsMenu(0);
-    }
-
-    public void AudioSettingsSwitch()
-    {
-        ChangeSettingsMenu(1);
-    }
-
-    public void KeybindSettingsSwitch()
-    {
-        ChangeSettingsMenu(2);
+        ChangeSettingsMenu(pageNumber);
     }
 
     // Change menu function

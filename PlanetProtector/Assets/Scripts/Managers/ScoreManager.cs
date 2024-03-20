@@ -5,8 +5,6 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    private float timePassed = 0f;
-    public float timeUntilUpdate = 10f;
 
     [SerializeField] private TMP_Text scoreTextPauseScreen;
     [SerializeField] private TMP_Text scoreTextEndScreen;
@@ -17,6 +15,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
 
     [SerializeField] private EnemySpawner enemySpawnerScript;
+
+    private float timePassed = 0f;
+    private float timeUntilUpdate = 10f;
 
     private void Start()
     {

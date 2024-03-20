@@ -6,9 +6,9 @@ public class GatlingEnemy : MonoBehaviour
 {
     [SerializeField] private Transform target; // The target it has to fly too and shoot (the human base)
     [SerializeField] private GameObject[] targets; // Array of targets
-    [SerializeField] private float thrustSpeed = 5f; // The ship its speed
-    [SerializeField] private float sphereColRadius = 100f;
     [SerializeField] private GameObject explosionParticle;
+    private float thrustSpeed = 5f; // The ship its speed
+    private float sphereColRadius = 100f;
 
     private Rigidbody rb;
     private SphereCollider sphereCol;
@@ -16,8 +16,8 @@ public class GatlingEnemy : MonoBehaviour
     private AudioSource audioSource;
 
     [SerializeField] private Rigidbody rbProjectile; // Get the rigidbody instead of the entire gameobject, so you wont have to reference to the rigidbody inside the script.
-    [SerializeField] private float launchForce = 5000f; // The force the projectile gets shot with
     [SerializeField] private Transform[] firePoints; // The points were they projectiles get fired from
+    private float launchForce = 5000f; // The force the projectile gets shot with
 
     [SerializeField] private float timeBetweenShooting = 5f;
 
@@ -37,7 +37,6 @@ public class GatlingEnemy : MonoBehaviour
         {
             targets = GameObject.FindGameObjectsWithTag("Target");
             target = targets[Random.Range(0, targets.Length)].transform;
-/*            target = GameObject.FindGameObjectWithTag("Target").transform;*/
             planetHealthManager = GameObject.FindGameObjectWithTag("Target").transform.parent.GetComponent<PlanetHealthManager>();
         }
 

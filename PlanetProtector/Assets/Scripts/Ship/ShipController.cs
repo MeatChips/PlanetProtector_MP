@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour
 {
-    // Mulitpliers for the ship's movement
-    [SerializeField] private float speedForwardMultiplier = 1f;
-    [SerializeField] private float speedBackwardMultiplier = .7f;
-    [SerializeField] private float speedLeftRightMultiplier = .8f;
-    [SerializeField] private float speedRollMultiplierAngle = 0.05f;
     [SerializeField] private GameObject explosionParticle;
+
+    // Mulitpliers for the ship's movement
+    private float speedForwardMultiplier = 1f;
+    private float speedBackwardMultiplier = .7f;
+    private float speedLeftRightMultiplier = .8f;
+    private float speedRollMultiplierAngle = 0.05f;
 
     private float mouseInputX;
     private float mouseInputY;

@@ -8,11 +8,6 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private TMP_Text highscoreText;
 
-/*    private void Start()
-    {
-        highscoreText.text = PlayerPrefs.GetInt("highscore").ToString();
-    }*/
-
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

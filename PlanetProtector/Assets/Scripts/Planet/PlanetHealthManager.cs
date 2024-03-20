@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlanetHealthManager : MonoBehaviour
 {
     private int maxHealth = 1000;
-    public int currentHealth;
+    private int currentHealth;
 
-    public PlanetHealthBar healthBar;
+    [SerializeField] private PlanetHealthBar healthBar;
 
     void Start()
     {

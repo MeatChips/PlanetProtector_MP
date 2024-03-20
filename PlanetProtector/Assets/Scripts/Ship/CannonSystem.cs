@@ -6,12 +6,12 @@ public class CannonSystem : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb; // Get the rigidbody instead of the entire gameobject, so you wont have to reference to the rigidbody inside the script.
     [SerializeField] private Transform[] firePoints; // The points were they projectiles get fired from
+    [SerializeField] private OverheatBar overheatBar;
     private float launchForce = 10000f; // The force the projectile gets shot with
     private AudioSource audioSource;
 
     private int maxHeat = 100;
-    [SerializeField] private int currentHeat;
-    [SerializeField] private OverheatBar overheatBar;
+    private int currentHeat;
     private float rateOfCooldown = 0.5f;
     private float nextCooldown = 0f;
 

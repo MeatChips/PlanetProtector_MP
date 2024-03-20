@@ -9,10 +9,10 @@ public class ControlsManager : MonoBehaviour
 {
     public static ControlsManager Instance;
 
-    public Slider sensitivitySliderX;
-    public Slider sensitivitySliderY;
-    public TMP_Text textSensX;
-    public TMP_Text textSensY;
+    private Slider sensitivitySliderX;
+    private Slider sensitivitySliderY;
+    private TMP_Text textSensX;
+    private TMP_Text textSensY;
 
     // Start is called before the first frame update
     void Awake()
@@ -37,12 +37,6 @@ public class ControlsManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("sensy", 150);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void ChangeSensitivityX()

@@ -6,20 +6,20 @@ public class LaserEnemy : MonoBehaviour
 {
     [SerializeField] private Transform target; // The target it has to fly too and shoot (the human base)
     [SerializeField] private GameObject[] targets; // Array of targets
-    [SerializeField] private float thrustSpeed = 5f; // The ship its speed
-    [SerializeField] private float sphereColRadius = 100f; // Radius of detection sphere
     [SerializeField] private GameObject explosionParticle;
+    private float thrustSpeed = 5f; // The ship its speed
+    private float sphereColRadius = 100f; // Radius of detection sphere
     private Rigidbody rb;
     private SphereCollider sphereCol;
 
     private PlanetHealthManager planetHealthManager;
     private ShipController shipController;
-    public List<int> laserTickTimers = new List<int>();
+    private List<int> laserTickTimers = new List<int>();
 
     [SerializeField] private Transform laserOrigin; // Origin from where to laser is getting shot
     [SerializeField] private LineRenderer laserLine; // The laser
-    [SerializeField] private float laserTime = 10f; // Time the laser is on
-    [SerializeField] private float timeBetweenShooting = 30f;
+    private float laserTime = 10f; // Time the laser is on
+    private float timeBetweenShooting = 30f;
 
     private float health = 30f;
     private int killReward = 14;
@@ -37,7 +37,6 @@ public class LaserEnemy : MonoBehaviour
         {
             targets = GameObject.FindGameObjectsWithTag("Target");
             target = targets[Random.Range(0, targets.Length)].transform;
-            /*            target = GameObject.FindGameObjectWithTag("Target").transform;*/
             planetHealthManager = GameObject.FindGameObjectWithTag("Target").transform.parent.GetComponent<PlanetHealthManager>();
         }
 
@@ -84,7 +83,6 @@ public class LaserEnemy : MonoBehaviour
         laserLine.SetPosition(0, laserOrigin.position);
         if(Physics.Raycast(rayOrigin, direction, out hit))
         {
-            //Debug.Log("HIT");
             laserLine.SetPosition(1, hit.point);
             laserTime -= Time.deltaTime;
             StartLaserDamage(4);
