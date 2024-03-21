@@ -7,7 +7,7 @@ public class GatlingEnemy : MonoBehaviour
     [SerializeField] private Transform target; // The target it has to fly too and shoot (the human base)
     [SerializeField] private GameObject[] targets; // Array of targets
     [SerializeField] private GameObject explosionParticle;
-    private float thrustSpeed = 5f; // The ship its speed
+    private float thrustSpeed = 9f; // The ship its speed
     private float sphereColRadius = 100f;
 
     private Rigidbody rb;

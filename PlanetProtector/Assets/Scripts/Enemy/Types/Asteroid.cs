@@ -8,7 +8,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private GameObject[] targets; // Array of targets
     [SerializeField] private GameObject explosionParticle;
     [SerializeField] private GameObject explosionSound;
-    private float floatSpeed = 5f; // The ship its normal speed
+    private float floatSpeed = 4f; // The ship its normal speed
     private float fallSpeed = 50f; // The ship its charge speed
     private float sphereColRadius = 100f; // Radius of detection sphere
 

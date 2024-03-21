@@ -8,8 +8,8 @@ public class KamikazeEnemy : MonoBehaviour
     [SerializeField] private GameObject[] targets; // Array of targets
     [SerializeField] private GameObject explosionParticle;
     [SerializeField] private GameObject explosionSound;
-    private float thrustSpeed = 5f; // The ship its normal speed
-    private float chargeSpeed = 50f; // The ship its charge speed
+    private float thrustSpeed = 15f; // The ship its normal speed
+    private float chargeSpeed = 60f; // The ship its charge speed
     private float sphereColRadius = 100f; // Radius of detection sphere
 
     private float speed;
