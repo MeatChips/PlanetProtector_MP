@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     private float maxRateToSpawn = 6f;
     private float outerCircleRotationSpeed = 20f;
     private float nextSpawn = 0f;
-    
+
     private List<GameObject> SpawnedEnemies = new List<GameObject>();
 
     private bool isSpawning, newEnemy;
@@ -46,6 +46,8 @@ public class EnemySpawner : MonoBehaviour
             if (SpawnedEnemies.Count >= maxEnemies) newEnemy = false;
             else newEnemy = true;
         }
+
+        SpawnedEnemies.RemoveAll(GameObject => GameObject == null);
     }
 
     private void StartSpawning()
@@ -56,8 +58,6 @@ public class EnemySpawner : MonoBehaviour
         Vector3 rndPosWithin;
         rndPosWithin = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         rndPosWithin = transform.TransformPoint(rndPosWithin * .5f); // Set a random position within the object's transform
-
-        SpawnedEnemies.RemoveAll(GameObject => GameObject == null);
 
         if (Time.time > nextSpawn)
         {
