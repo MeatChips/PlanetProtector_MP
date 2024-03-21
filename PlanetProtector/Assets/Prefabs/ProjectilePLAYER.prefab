@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e0f9ee399154c419fd041bc11f9502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitmarker: {fileID: 8130106974041655088, guid: f5f85e70a44348944bdb6a01a60f90ca,
+  hitSound: {fileID: 7006579215291387084, guid: 84a7cda151d67cb4f931b98d8b7fff3e,
     type: 3}
 --- !u!1 &8781220797560059437
 GameObject:

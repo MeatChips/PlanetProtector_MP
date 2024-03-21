@@ -5873,10 +5873,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 5880606771228075512, guid: 0e92da1d96fd5c04180a5e8ceab01fd8, type: 3}
-  - {fileID: 2427196285509147041, guid: c3303f8b735e8d94a9f76b3c5fc75772, type: 3}
+  - {fileID: 5417627728238274145, guid: 49e42df5b66f8944580bf17d3d9228fd, type: 3}
   - {fileID: 8406133044723564377, guid: 1f3c275fbd4e9474dab9cf7bd4e084e2, type: 3}
-  - {fileID: 5633509865608285140, guid: dbec25bb985f8c944becc9132d17c3b6, type: 3}
+  - {fileID: 2427196285509147041, guid: c3303f8b735e8d94a9f76b3c5fc75772, type: 3}
+  - {fileID: 5880606771228075512, guid: 0e92da1d96fd5c04180a5e8ceab01fd8, type: 3}
   outerCircle: {fileID: 2028756324403440352}
   maxEnemies: 20
 --- !u!1 &940845961

@@ -266,15 +266,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   targets: []
-  thrustSpeed: 5
-  sphereColRadius: 100
   explosionParticle: {fileID: 1349333875162952348, guid: 3453a25b790ba204eac8e75df7d8e974,
     type: 3}
-  laserTickTimers: 
   laserOrigin: {fileID: 8457966276865344917}
   laserLine: {fileID: 44358998386626054}
-  laserTime: 10
-  timeBetweenShooting: 30
 --- !u!1 &6042324104631571530
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 6042324104631571530}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
